@@ -13,8 +13,13 @@ class StudentManager {
   }
 
   public function displayStudents(){
-    foreach($this->student as $student){
-      echo 'Student: ' . $student->getName() . 'Grade: ' . $student->getGrade() . '\t';
+    if (empty($this->student)) {
+      echo "No students found";
+    } 
+    else {
+      foreach($this->student as $student){
+        echo 'Student: ' . $student->getName() . 'Grade: ' . $student->getGrade() . '\t';
+      }
     }
   }
 }
