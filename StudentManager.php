@@ -35,4 +35,17 @@ class StudentManager {
     }
   }
 
+  public function updateGrade(string $name, int $grade){
+    if ($grade < 0 || $grade > 100) {
+      echo "Invalid grade. Grade must be between 0 and 100.\n";
+      return;
+    }
+
+    if (isset($this->student[$name])) {
+      $this->student[$name]->setGrade($grade);
+    }
+    else {
+    echo "Student name \"{$name}\" doesn't exist\n";
+    }
+  }
 }
